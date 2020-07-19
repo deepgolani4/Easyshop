@@ -23,3 +23,20 @@ https://docs.google.com/document/d/14A5E0IkK1xWO8Cd8_pOOewMHqO49RvZYx4J8LMWMZZ8/
                 components - 
                     (add react components in this folder)
         .env ( add all the config info in this file )
+
+## Note
+    Followed variable naming convention - Camel Case
+        e.g hiItsAVariableGetThisPattern
+        For .env ( environment constant convention )
+            e.g HI_ITS_A_VARIABLE
+
+    "routes" folder will have index.js in which we will import all other route files.
+        i.e Basic request flow, server.js -> routes/index.js -> routes/index.js/${respectiveFile}.js
+
+## Status Codes
+    400 - Bad Request ( Request has unsatisfied params )
+    401 - Unauthorized ( Failed JWT verification )
+    403 - Forbidden Access ( no authorization headers)
+    503 - MongoDB err
+
+
