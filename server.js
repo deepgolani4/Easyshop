@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
-app.use('/', verifyJWT, index);
+app.use('/', index);
 
 // const db = require('./models/firebaseSDK').db;
 // const lol = async () => {
