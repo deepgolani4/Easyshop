@@ -21,6 +21,24 @@ module.exports = {
     deleteUser : async (req,res) => {
         const { name } = req.body;
 
-        await db.batch().delete(db.collection('users').doc(blake2b(name).slice(0,10)))
+        await db.collection('users').doc(blake2b(name).slice(0,10)).delete().then((data)=>{
+            res.send('success').status(200);
+        }).catch(err=>{
+            console.log(err);
+            res.send('error').status(503);
+        });  
+    },
+
+    updateUser : async (req,res) => {
+        const { name, updateFields } = req.body;
+        if(updateFields.password)
+            updateFields.password = blake2b(updateFields.password)
+        
+        await db.collection('users').doc(blake2b(name).slice(0,10)).update(updateFields).then((data)=>{
+            res.send('success').status(200);
+        }).catch(err=>{
+            console.log(err);
+            res.send('err').status(503);
+        })
     }
 }
