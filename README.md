@@ -7,6 +7,9 @@ https://docs.google.com/document/d/14A5E0IkK1xWO8Cd8_pOOewMHqO49RvZYx4J8LMWMZZ8/
 
 https://docs.google.com/spreadsheets/d/12GEjT4T7DFxO5GngETmukfVs-ImZ1GtC2f5oQX6SgKU/edit#gid=0
 
+API Testing Link
+https://www.getpostman.com/collections/c6da3b13ae81ffccd11a
+
 ## Project Structure
     root - 
         models -
