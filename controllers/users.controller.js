@@ -13,10 +13,10 @@ module.exports = {
             password:blake2b(password)
         }).then((data)=>{
             console.log(data);
-            res.send('success').status(200);
+            res.status(200).send('success');
         }).catch((err)=>{
             console.log(err);
-            res.send('error').status(503);
+            res.status(503).send('error');
         })
     },
 
@@ -24,10 +24,10 @@ module.exports = {
         const { uid } = req.body;
 
         await db.collection('users').doc(uid).delete().then((data)=>{
-            res.send('success').status(200);
+            res.status(200).send('success');
         }).catch(err=>{
             console.log(err);
-            res.send('error').status(503);
+            res.status(503).send('error');
         });  
     },
 
@@ -37,10 +37,10 @@ module.exports = {
             updateFields.password = blake2b(updateFields.password)
         
         await db.collection('users').doc(uid).update(updateFields).then((data)=>{
-            res.send('success').status(200);
+            res.status(200).send('success');
         }).catch(err=>{
             console.log(err);
-            res.send('err').status(503);
+            res.status(503).send('err');
         })
     }
 }

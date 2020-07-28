@@ -5,15 +5,16 @@ module.exports = (req, res, next) => {
     const tkn = req.headers.authorization;
 
     if (typeof tkn !== "undefined") {
-        jwt.verify(tkn, config.auth.JWT_SECRET, (err, decoded) => {
+        jwt.verify(tkn, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
-                return res.send("JWTVerifyFailed").status(401);
+                return res.status(401).send("JWTVerifyFailed");
             }
-            req.authUserId = decoded;
+            // console.log(decoded)
+            req.authorizedUser = decoded;
             next();
         });
 
     } else {
-        return res.send("noAuthHeader").status(403);
+        return res.status(403).send("noAuthHeader");
     }
 }
