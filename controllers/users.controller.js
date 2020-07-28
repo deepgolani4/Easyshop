@@ -5,7 +5,9 @@ module.exports = {
     addUser : async (req,res) => {
         const { name, email, password } = req.body;
 
-        await db.collection('users').doc(blake2b(name).slice(0,10)).set({
+        const uid = blake2b(email).slice(0,10);
+        await db.collection('users').doc(uid).set({
+            uid,
             name,
             email,
             password:blake2b(password)
@@ -19,9 +21,9 @@ module.exports = {
     },
 
     deleteUser : async (req,res) => {
-        const { name } = req.body;
+        const { uid } = req.body;
 
-        await db.collection('users').doc(blake2b(name).slice(0,10)).delete().then((data)=>{
+        await db.collection('users').doc(uid).delete().then((data)=>{
             res.send('success').status(200);
         }).catch(err=>{
             console.log(err);
@@ -30,11 +32,11 @@ module.exports = {
     },
 
     updateUser : async (req,res) => {
-        const { name, updateFields } = req.body;
+        const { uid, updateFields } = req.body;
         if(updateFields.password)
             updateFields.password = blake2b(updateFields.password)
         
-        await db.collection('users').doc(blake2b(name).slice(0,10)).update(updateFields).then((data)=>{
+        await db.collection('users').doc(uid).update(updateFields).then((data)=>{
             res.send('success').status(200);
         }).catch(err=>{
             console.log(err);
