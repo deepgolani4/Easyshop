@@ -11,7 +11,7 @@ import Header from "../../utils/Header/Header.js";
 import Footer from "../../utils/Footer/Footer.js";
 import GridContainer from "../../utils/Grid/GridContainer.js";
 import GridItem from "../../utils/Grid/GridItem.js";
-import HeaderLinks from "../../utils/Header/HeaderLinks.js";
+import HeaderLinks from "./Sections/HeaderLinks.js";
 import Parallax from "../../utils/Parallax/Parallax.js";
 import SectionCarousel from "./Sections/carousel";
 import styles from "../../utils/assets/jss/material-kit-react/views/landingPage.js";

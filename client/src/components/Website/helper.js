@@ -4,11 +4,11 @@ export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = React.useState(null);
-    const [pending, setPending] = React.useState(true);
+    const [pending, setPending] = React.useState(false);
 
     React.useEffect(() => {
         if (localStorage.getItem('token')) {
-            setCurrentUser(user)
+            setCurrentUser(localStorage.getItem('token'))
             setPending(false)
         }
     }, [localStorage.key(0)]);
