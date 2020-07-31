@@ -74,7 +74,7 @@ export default function LandingPage(props) {
             </GridContainer>
         <div className={classes.container}>
         
-        <SectionCarousel />
+        {/* <SectionCarousel /> */}
 
         </div>
         <div className={classes.settings}>
