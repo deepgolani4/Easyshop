@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     login: (req, res) => {
         const { email, password } = req.body;
-
         db.collection('users').doc(blake2b(email).slice(0, 10)).get().then((data) => {
             const res_ = data.data();
             // console.log(res_)
@@ -21,15 +20,15 @@ module.exports = {
                 }, process.env.JWT_SECRET, (err, token) => {
                     if (err) {
                         console.log(err);
-                        return res.status(503).send('error');
+                        return res.status(503).send(new Error('error'));
                     }
                     return res.status(200).send(token);
                 });
             } else {
-                res.status(403).send('invalidPass');
+                res.status(400).send(new Error('invalidPass'));
             }
         }).catch(err => {
-            res.status(503).send('error');
+            res.status(503).send(new Error('error'));
         })
     }
 }

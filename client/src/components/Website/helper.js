@@ -7,11 +7,11 @@ export const AuthProvider = ({ children }) => {
     const [pending, setPending] = React.useState(false);
 
     React.useEffect(() => {
-        if (localStorage.getItem('token')) {
-            setCurrentUser(localStorage.getItem('token'))
+        if (window.localStorage.getItem('token')) {
+            setCurrentUser(window.localStorage.getItem('token'))
             setPending(false)
         }
-    }, [localStorage.key(0)]);
+    }, []);
 
     if (pending) {
         return <>Loading...</>

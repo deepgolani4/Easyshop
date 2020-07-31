@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import { AuthContext } from '../../helper';
+import axios from 'axios';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -60,31 +61,20 @@ const Auth = ({ history }) => {
     setOpen(false);
   }
 
-  const handleLoginG = React.useCallback(async event => {
-    event.preventDefault();
-    try {
-      await APP.auth().signInWithPopup(provider)
-      await firebase.auth().currentUser.getIdToken(true).then((data) => {
-        console.log(data);
-      })
-    } catch (err) {
-      alert(err);
-    }
-  },
-    [history]
-  );
-
   const handleLoginOldSchool = React.useCallback(async event => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    try {
-      await APP.auth().signInWithEmailAndPassword(email.value, password.value);
-      await firebase.auth().currentUser.getIdToken(true).then((data) => {
-        console.log(data);
-      })
-    } catch (err) {
+    axios.post('http://localhost:5000/login',{
+      email:email.value,
+      password:password.value
+    }).then((res)=>{
+      console.log(res.data)
+      window.localStorage.setItem('token',res.data);
+      window.location.href = '/'
+    }).catch(err=>{
+      alert('Error Occured. Try after Some Time');
       console.log(err);
-    }
+    })
   },
     [history]
   );
@@ -93,7 +83,7 @@ const Auth = ({ history }) => {
 
   if (currentUser) {
     console.log(currentUser);
-    return window.location.href = '/autonomousai';
+    // return window.location.href = '/autonomousai';
   }
 
   return (
@@ -191,12 +181,13 @@ const Logged = () => {
   return (
     <>
       <Button style={{ margin: 0, padding: 0 }} onClick={handleOpen}>
-        <Avatar src={currentUser.providerData[0].photoURL}>
+        <Avatar src={''}>
         </Avatar>
       </Button>
       <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} anchorOrigin={{ vertical: "bottom" }} onClose={handleClose}>
         <MenuItem onClick={async () => {
-          await APP.auth().signOut();
+          window.localStorage.clear();
+          window.location.href = '/'
         }}>
           Sign Out
         </MenuItem>
