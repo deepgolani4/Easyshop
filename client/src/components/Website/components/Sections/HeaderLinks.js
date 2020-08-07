@@ -2,25 +2,26 @@
 import React from "react";
 import { AuthContext } from '../../helper';
 import axios from 'axios';
+import curv from "../../../utils/assets/img/curv.png";
+import Container from '@material-ui/core/Container';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {
-  List, ListItem, Typography, Dialog, DialogTitle, TextField, DialogContent, Avatar,
-  Menu, MenuItem, Container, CssBaseline, FormControlLabel, Checkbox, Grid, Box
+  List, ListItem, Dialog, DialogTitle, TextField, DialogContent, Avatar,
+  Menu, MenuItem, CssBaseline, FormControlLabel, Checkbox, Grid, Box
 } from '@material-ui/core';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
-
+import Typography from '../../../utils/assets/jss/material-kit-react/components/typography';
+import Snackbar from '../../../utils/assets/jss/material-kit-react/components/snackbar';
+im
 // core components
-import CustomDropdown from "../../../utils/CustomDropdown/CustomDropdown.js";
 import Button from "../../../utils/CustomButtons/Button.js";
 
 import styles from "../../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js";
@@ -43,6 +44,11 @@ const useStyles2 = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },curvyLines: {
+    pointerEvents: 'none',
+    position: 'absolute',
+    top: -180,
+    
   },
 }));
 
@@ -108,6 +114,8 @@ const Auth = ({ history }) => {
                 Sign in
               </Typography>
               <form className={classes.form} onSubmit={handleLoginOldSchool}>
+                <img src={curv} className={classes.curvyLines}
+          alt="curvy lines"/>
                 <TextField
                   variant="outlined"
                   margin="normal"
