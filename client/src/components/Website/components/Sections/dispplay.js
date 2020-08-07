@@ -28,13 +28,11 @@ import {
     grayColor,
     hexToRgb
   } from "../../../utils/assets/jss/dispplay-react";
-
-
-const styles = (theme) =>  ({
+  const styles = (theme) =>  ({
     successText: {
       color: successColor[0]
     },
-    upArrowCardCategory: {
+    upArrowcardtCategory: {
       width: "16px",
       height: "16px"
     },
@@ -59,29 +57,33 @@ const styles = (theme) =>  ({
         marginLeft: "3px"
       }
     },
-    cardCategory: {
+    cardtCategory: {
       color: grayColor[0],
       margin: "0",
       fontSize: "20px",
       marginTop: "0",
       paddingTop: "10px",
-      marginBottom: "0"
+      marginBottom: "0",
+      fontFamily: "Helvetica"
+
     },
-    cardCategoryWhite: {
+    cardtCategoryWhite: {
       color: "rgba(" + hexToRgb(whiteColor) + ",.62)",
       margin: "0",
       fontSize: "14px",
       marginTop: "0",
-      marginBottom: "0"
+      marginBottom: "0",
+      fontFamily: "Helvetica"
+
     },
-    cardTitle: {
-      color: grayColor[2],
+    cardtTitle: {
+      color: grayColor[1],
       marginTop: "10px",
       minHeight: "auto",
-      fontWeight: "300",
+      fontWeight: "50",
       paddingTop: "10px",
-
-      fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+      fontSize:"25px",
+      fontFamily: "Helvetica",
       marginBottom: "3px",
       textDecoration: "none",
       "& small": {
@@ -90,7 +92,7 @@ const styles = (theme) =>  ({
         lineHeight: "1"
       }
     },
-    cardTitleWhite: {
+    cardtTitleWhite: {
       color: whiteColor,
       marginTop: "0px",
       minHeight: "auto",
@@ -125,10 +127,10 @@ function TopPicks(props) {
               <CardIcon color="warning">
               <MDBIcon icon="syringe" /> 
                </CardIcon>
-              <h3 className={classes.cardTitle}>
+              <h3 className={classes.cardtTitle}>
                 Medicine 
               </h3>
-              <p className={classes.cardCategory}>Buy at best price</p>
+              <p className={classes.cardtCategory}>Buy at best price</p>
               
             </CardHeader>
             <CardFooter stats>
@@ -149,9 +151,9 @@ function TopPicks(props) {
               <CardIcon color="success">
               <MDBIcon icon="shopping-basket" />  
               </CardIcon>
-              <h3 className={classes.cardTitle}>Groceries</h3>
+              <h3 className={classes.cardtTitle}>Groceries</h3>
            
-              <p className={classes.cardCategory}> best deals in daily needs </p>
+              <p className={classes.cardtCategory}> best deals in daily needs </p>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -167,9 +169,9 @@ function TopPicks(props) {
               <CardIcon color="danger">
                 <RestaurantIcon />
                 </CardIcon>
-                <h3 className={classes.cardTitle}>fruits & Vegetables</h3>
+                <h3 className={classes.cardtTitle}>fruits & Vegetables</h3>
 
-              <p className={classes.cardCategory}>give a rest to junk</p>
+              <p className={classes.cardtCategory}>give a rest to junk</p>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -185,9 +187,9 @@ function TopPicks(props) {
               <CardIcon color="info">
                 <BathtubIcon />
                </CardIcon>
-               <h3 className={classes.cardTitle}>personal care</h3>
+               <h3 className={classes.cardtTitle}>personal care</h3>
 
-              <p className={classes.cardCategory}>stay clean for IDK.</p>
+              <p className={classes.cardtCategory}>stay clean for IDK.</p>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
