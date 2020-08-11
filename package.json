@@ -20,6 +20,7 @@
     "firebase-admin": "^9.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9",
+    "node-rsa": "^1.1.1",
     "path": "^0.12.7"
   }
 }
