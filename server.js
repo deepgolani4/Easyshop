@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const decrypt_ = require('./helpers/rsaDecrypt');
 // const mongoose = require('mongoose');
 
 const app = express();
@@ -15,6 +16,10 @@ app.use(express.urlencoded({
 }));
 app.use('/', index);
 
+app.post('/check',(req,res) => {
+    const { payload } = req.body;
+    res.send(decrypt_(payload));
+})
 // const db = require('./models/firebaseSDK').db;
 // const lol = async () => {
 //     await db.batch().delete(db.collection('users').doc('genesis'))
