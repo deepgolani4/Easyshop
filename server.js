@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const decrypt_ = require('./helpers/rsaDecrypt');
+const decrypt_ = require('./helpers/rsaDecrypt').decrypt_;
 // const mongoose = require('mongoose');
 
 const app = express();
@@ -16,27 +16,10 @@ app.use(express.urlencoded({
 }));
 app.use('/', index);
 
-app.post('/check',(req,res) => {
-    const { payload } = req.body;
-    res.send(decrypt_(payload));
-})
-// const db = require('./models/firebaseSDK').db;
-// const lol = async () => {
-//     await db.batch().delete(db.collection('users').doc('genesis'))
-//     await db.collection("users").doc('genesis').set({
-//         'name': 'genesis',
-//         'info': {
-//             'lol': true
-//         }
-//     });
-//     const data =await db.collection('users').doc('genesis').get()
-//     console.log(data.data())
-// }
-// lol()
-// mongoose.connect(mongoURL,{useNewUrlParser: true});
-// mongoose.connection.once('open',()=>{
-//     console.log('MongoDB connected');
-// });
+app.post('/check',decrypt_,(req,res) => {
+    // const { payload } = req.body;
+    res.send(req.body);
+});
 
 const port = process.env.PORT || 5000;
 

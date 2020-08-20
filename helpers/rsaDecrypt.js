@@ -39,9 +39,19 @@ Mis90+VAHUPXtiqD4iLDM9LBYDwIYavjZhHybFls2UUL6uSjx7m2zs9qfzBEdWU7T2zzHy
 YpJ/xTaJy7yfvt/F6yhICeDCDGgQUYRlF6peyaxZExLUVNtrLOqtRr5Xb7vol1PT8TTW7v
 TdjQsDmKe8bXXedShT+5FCxz6PIqiFD/sjYgPuxXakqaCXg5TDzG2olUzCf5aE3ecxfaAl
 RjaSpgRVN23jDhAAAADnN1ZG9uaW1AZGViaWFuAQIDBA==
------END OPENSSH PRIVATE KEY-----`,'openssh-private')
+-----END OPENSSH PRIVATE KEY-----`, 'openssh-private')
 
 
-module.exports =  decrypt_ = (data) => {
-    return JSON.parse(key.decrypt(data,'utf8'));
+module.exports = {
+    decrypt_: (req, res, next) => {
+        const data = req.body.payload;
+        try {
+            const decoded_ = JSON.parse(key.decrypt(data, 'utf8'));
+            req.body = decoded_;
+        } catch(err) {
+            return res.status(503).send('RSADecryptError');
+        }
+
+        next();
+    }
 }

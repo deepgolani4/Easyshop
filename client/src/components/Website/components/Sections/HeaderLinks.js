@@ -6,7 +6,6 @@ import curv from "../../../utils/assets/img/curv.png";
 import Container from '@material-ui/core/Container';
 
 import InputBase from '@material-ui/core/InputBase';
-import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
@@ -19,8 +18,7 @@ import {
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 import Typography from '../../../utils/assets/jss/material-kit-react/components/typography';
-import Snackbar from '../../../utils/assets/jss/material-kit-react/components/snackbar';
-im
+// im
 // core components
 import Button from "../../../utils/CustomButtons/Button.js";
 
