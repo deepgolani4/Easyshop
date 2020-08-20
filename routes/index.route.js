@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const decrypt_ = require('../helpers/rsaDecrypt').decrypt_;
 
 // Import Controllers Here
 const user = require('../controllers/users.controller');
@@ -14,7 +15,7 @@ router.get('/',(req,res)=>{
 router.post('/adduser',user.addUser);
 
 //Login
-router.post('/login',login.login);
+router.post('/login',decrypt_,login.login);
 
 
 module.exports = router;

@@ -25,7 +25,7 @@ module.exports = {
                     return res.status(200).send(token);
                 });
             } else {
-                res.status(400).send(new Error('invalidPass'));
+                res.status(400).send('invalidPass');
             }
         }).catch(err => {
             res.status(503).send(new Error('error'));

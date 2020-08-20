@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import { AuthContext } from '../../helper';
+import encrypt_ from '../../../../helpers/jsonEncrypt';
 import axios from 'axios';
 import curv from "../../../utils/assets/img/curv.png";
 import Container from '@material-ui/core/Container';
@@ -12,13 +13,12 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {
-  List, ListItem, Dialog, DialogTitle, TextField, DialogContent, Avatar,
-  Menu, MenuItem, CssBaseline, FormControlLabel, Checkbox, Grid, Box
+  List, ListItem, Dialog, TextField, DialogContent, Avatar,
+  Menu, MenuItem, CssBaseline, FormControlLabel, Checkbox, Grid
 } from '@material-ui/core';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 import Typography from '../../../utils/assets/jss/material-kit-react/components/typography';
-// im
 // core components
 import Button from "../../../utils/CustomButtons/Button.js";
 
@@ -42,11 +42,11 @@ const useStyles2 = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },curvyLines: {
+  }, curvyLines: {
     pointerEvents: 'none',
     position: 'absolute',
     top: -180,
-    
+
   },
 }));
 
@@ -68,16 +68,18 @@ const Auth = ({ history }) => {
   const handleLoginOldSchool = React.useCallback(async event => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    axios.post('http://localhost:5000/login',{
-      email:email.value,
-      password:password.value
-    }).then((res)=>{
+    axios.post('http://localhost:5000/login', {
+      payload: encrypt_({
+        email: email.value,
+        password: password.value
+      })
+    }).then((res) => {
       console.log(res.data)
-      window.localStorage.setItem('token',res.data);
+      window.localStorage.setItem('token', res.data);
       window.location.href = '/'
-    }).catch(err=>{
-      alert('Error Occured. Try after Some Time');
+    }).catch(err => {
       console.log(err);
+      alert('Error Occured. Try after Some Time');
     })
   },
     [history]
@@ -112,8 +114,8 @@ const Auth = ({ history }) => {
                 Sign in
               </Typography>
               <form className={classes.form} onSubmit={handleLoginOldSchool}>
-                <img src={curv} className={classes.curvyLines}
-          alt="curvy lines"/>
+                {/* <img src={curv} className={classes.curvyLines}
+          alt="curvy lines"/> */}
                 <TextField
                   variant="outlined"
                   margin="normal"

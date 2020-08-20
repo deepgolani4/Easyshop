@@ -8,4 +8,4 @@ const encrypt_ = (data) => {
     return key.encrypt(JSON.stringify(data),'base64');
 }
 
-// console.log(encrypt_({lol:"bye"}));
+export default encrypt_;

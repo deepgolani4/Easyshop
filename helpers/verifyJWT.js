@@ -9,7 +9,6 @@ module.exports = (req, res, next) => {
             if (err) {
                 return res.status(401).send("JWTVerifyFailed");
             }
-            // console.log(decoded)
             req.authorizedUser = decoded;
             next();
         });
