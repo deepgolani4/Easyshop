@@ -18,7 +18,10 @@ import TopPicks from './Sections/dispplay';
 import profile from "../../utils/assets/img/EasyShop.jpeg";
 import ProfilePage from './Sections/bestproduct'
 import ProductCategories from './Sections/ShopSection'
+import ProductList from './Sections/product';
 const dashboardRoutes = [];
+
+
 
 const useStyles = makeStyles(styles);
 
@@ -75,6 +78,7 @@ export default function LandingPage(props) {
         </div>
       </div>
       <Footer />
+      <ProductList />
     </div>
   );
 }
