@@ -1,5 +1,4 @@
 import React from "react";
-// react plugin for creating charts
 // @material-ui/core
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -169,7 +168,7 @@ function TopPicks(props) {
               <CardIcon color="danger">
                 <RestaurantIcon />
                 </CardIcon>
-                <h3 className={classes.cardtTitle}>fruits & Vegetables</h3>
+                <h3 className={classes.cardtTitle}>Fruits n Vegetables</h3>
 
               <p className={classes.cardtCategory}>give a rest to junk</p>
             </CardHeader>
@@ -187,7 +186,7 @@ function TopPicks(props) {
               <CardIcon color="info">
                 <BathtubIcon />
                </CardIcon>
-               <h3 className={classes.cardtTitle}>personal care</h3>
+               <h3 className={classes.cardtTitle}>Personal Care</h3>
 
               <p className={classes.cardtCategory}>stay clean for IDK.</p>
             </CardHeader>

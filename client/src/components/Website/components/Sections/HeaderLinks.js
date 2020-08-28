@@ -14,13 +14,15 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {
   List, ListItem, Dialog, TextField, DialogContent, Avatar,
-  Menu, MenuItem, CssBaseline, FormControlLabel, Checkbox, Grid
+  CssBaseline, FormControlLabel, Checkbox, Grid, Button,
+  Link as Link_
 } from '@material-ui/core';
+
+import AccountCircle from '@material-ui/icons/AccountCircle';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 import Typography from '../../../utils/assets/jss/material-kit-react/components/typography';
-// core components
-import Button from "../../../utils/CustomButtons/Button.js";
+import CustomDropdown from "../../../utils/CustomDropdown/CustomDropdown";
 
 import styles from "../../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js";
 
@@ -89,7 +91,6 @@ const Auth = ({ history }) => {
 
   if (currentUser) {
     console.log(currentUser);
-    // return window.location.href = '/autonomousai';
   }
 
   return (
@@ -114,8 +115,6 @@ const Auth = ({ history }) => {
                 Sign in
               </Typography>
               <form className={classes.form} onSubmit={handleLoginOldSchool}>
-                {/* <img src={curv} className={classes.curvyLines}
-          alt="curvy lines"/> */}
                 <TextField
                   variant="outlined"
                   margin="normal"
@@ -178,7 +177,6 @@ const Logged = () => {
   const [anchorEl, setAnchor] = React.useState(null)
 
   const handleOpen = (e) => {
-    // setOpen(!open);
     setAnchor(e.currentTarget);
   }
 
@@ -187,29 +185,32 @@ const Logged = () => {
   }
 
   return (
-    <>
-      <Button style={{ margin: 0, padding: 0 }} onClick={handleOpen}>
-        <Avatar src={''}>
-        </Avatar>
-      </Button>
-      <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} anchorOrigin={{ vertical: "bottom" }} onClose={handleClose}>
-        <MenuItem onClick={async () => {
+    <CustomDropdown
+      left
+      caret={false}
+      hoverColor="black"
+      buttonText={
+        <img
+          src={''}
+          className={'classes.img'}
+          alt="profile"
+        />
+      }
+      buttonProps={{
+        className:
+          'classes.navLink' + " " + 'classes.imageDropdownButton',
+        color: "transparent"
+      }}
+      dropdownList={[
+        <Link_ color="inherit" href="/admin" underline="none">Admin Panel</Link_>,
+        <div onClick={async () => {
           window.localStorage.clear();
-          window.location.href = '/'
-        }}>
-          Sign Out
-        </MenuItem>
-      </Menu>
-    </>
+          window.location.reload()
+        }}> Sign Out </div>
+      ]}
+    />
   )
 }
-
-
-
-
-
-
-
 
 export default function HeaderLinks(props) {
   const { currentUser } = React.useContext(AuthContext)
@@ -258,31 +259,6 @@ export default function HeaderLinks(props) {
           <ShoppingCartIcon className={classes.icons} /> Cart
         </Button>
       </ListItem>
-
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip title="Delete">
-          <IconButton aria-label="Delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-        <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
-      </ListItem>  */}
-
-
     </List>
   );
 }

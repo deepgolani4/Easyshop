@@ -4,8 +4,6 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-
 // core components
 import Header from "../../utils/Header/Header.js";
 import Footer from "../../utils/Footer/Footer.js";
@@ -23,7 +21,6 @@ import ProductCategories from './Sections/ShopSection'
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
-
 
 export default function LandingPage(props) {
   const classes = useStyles();
@@ -48,40 +45,34 @@ export default function LandingPage(props) {
         }}
         {...rest}
       />
-     <Parallax small filter image={require("../../utils/assets/img/landing-bg.jpg")}>
+      <Parallax small filter image={require("../../utils/assets/img/landing-bg.jpg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-
-              
-               
             </GridItem>
-            
           </GridContainer>
         </div>
-      </Parallax>  
-      
+      </Parallax>
+
       <div className={classNames(classes.main, classes.mainRaised)}>
-      <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                  <div>
-                    <img src={profile} alt="..." className={imageClasses} />
-                  </div>
-                  
-                </div>
-              </GridItem>
-            </GridContainer>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={6}>
+            <div className={classes.profile}>
+              <div>
+                <img src={profile} alt="..." className={imageClasses} />
+              </div>
+
+            </div>
+          </GridItem>
+        </GridContainer>
         <div className={classes.container}>
-        
-        {/* <SectionCarousel /> */}
 
         </div>
         <div className={classes.settings}>
-        <TopPicks />
-        <ProductCategories />
-        <ProfilePage />
-      </div>
+          <TopPicks />
+          <ProductCategories />
+          <ProfilePage />
+        </div>
       </div>
       <Footer />
     </div>
