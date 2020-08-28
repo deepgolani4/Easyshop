@@ -1,22 +1,16 @@
 /* eslint-disable */
 import React from 'react';
-import { Switch } from 'react-router-dom';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './helper';
 import LandingPage from './components/LandingPage';
-
-
-const theme = createMuiTheme({
-
-});
+import ProductList from './components/Sections/product/index';
 
 export default function HomePage() {
     return (
         <Switch>
             <AuthProvider>
-                <ThemeProvider theme={theme}>
-                    <LandingPage />
-                </ThemeProvider>
+                <Route exact path="/" component={LandingPage}/>
+                <Route path="/admin" component={ProductList} />
             </AuthProvider>
         </Switch>
     )

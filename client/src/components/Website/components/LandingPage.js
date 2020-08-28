@@ -6,22 +6,17 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import Header from "../../utils/Header/Header.js";
-import Footer from "../../utils/Footer/Footer.js";
+// import Footer from "../../utils/Footer/Footer.js";
 import GridContainer from "../../utils/Grid/GridContainer.js";
 import GridItem from "../../utils/Grid/GridItem.js";
-import HeaderLinks from "./Sections/HeaderLinks.js";
+import HeaderLinks from "./Sections/root/HeaderLinks.js";
 import Parallax from "../../utils/Parallax/Parallax.js";
-import SectionCarousel from "./Sections/carousel";
 import styles from "../../utils/assets/jss/material-kit-react/views/landingPage.js";
-import TopPicks from './Sections/dispplay';
+import TopPicks from './Sections/root/dispplay';
 // Sections for this page
 import profile from "../../utils/assets/img/EasyShop.jpeg";
-import ProfilePage from './Sections/bestproduct'
-import ProductCategories from './Sections/ShopSection'
-import ProductList from './Sections/product';
-const dashboardRoutes = [];
-
-
+import ProfilePage from './Sections/root/bestproduct'
+import ProductCategories from './Sections/root/ShopSection'
 
 const useStyles = makeStyles(styles);
 
@@ -38,7 +33,6 @@ export default function LandingPage(props) {
     <div>
       <Header
         color="transparent"
-        routes={dashboardRoutes}
         brand="Material Kit React"
         rightLinks={<HeaderLinks />}
         fixed
@@ -77,8 +71,6 @@ export default function LandingPage(props) {
           <ProfilePage />
         </div>
       </div>
-      <Footer />
-      <ProductList />
     </div>
   );
 }

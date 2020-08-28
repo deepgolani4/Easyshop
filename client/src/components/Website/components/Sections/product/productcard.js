@@ -28,13 +28,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column'
   },
   mainRaised: {
-    
+
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
   },
   mainButton: {
-    padding:"4px 4px 4px 4px",
+    padding: "4px 4px 4px 4px",
     margin: "0px 1.0vw 0px",
     borderRadius: "6px",
     border: "2px solid grey"
@@ -47,66 +47,48 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1)
   },
   plusminus: {
-    fontSize:"20px"
+    fontSize: "20px"
   },
   modify: {
-      fontWeight: "50",
-      color: grayColor[1],
-      margin: "0",
-      fontSize: "30px",
-      marginTop: "3px",
-      marginBottom: "3px",
-      fontFamily: "Helvetica",
+    fontWeight: "50",
+    color: grayColor[1],
+    margin: "0",
+    fontSize: "30px",
+    marginTop: "3px",
+    marginBottom: "3px",
+    fontFamily: "Helvetica",
   }
- 
+
 
 }));
-
-// var increament = React.createClass({
-  
-//   increament: function() {
-//     this.setState({
-//       {product.}
-//     })
-
-//   }
-// })
-
-
-
 
 const ProductCard = ({ className, product, ...rest }) => {
   const classes = useStyles();
 
   return (
     <Card
-      className={clsx(classes.root,classes.mainRaised)}
+      className={clsx(classes.root, classes.mainRaised)}
       {...rest}
     >
-   
       <CardContent>
-    
-      <Box display="flex"
-      justifyContent="center"
-      className={classes.modify}
-
-      mb={3}
-      >
-        <Avatar alt="product"
-        className={classes.modify}
-
-        src={product.media}
-        variant="square"
-        />
+        <Box display="flex"
+          justifyContent="center"
+          className={classes.modify}
+          mb={3}
+        >
+          <Avatar alt="product"
+            className={classes.modify}
+            src={product.media}
+            variant="square"
+          />
         </Box>
-        
+
         <Typography
           align="center"
           color="textPrimary"
           gutterBottom
           variant="h4"
           className={classes.modify}
-
         >
           {product.title}
         </Typography>
@@ -117,7 +99,6 @@ const ProductCard = ({ className, product, ...rest }) => {
         >
           {product.description}
         </Typography>
-
       </CardContent>
       <Divider />
       <Box p={2} >
@@ -131,11 +112,11 @@ const ProductCard = ({ className, product, ...rest }) => {
             item
           >
             <ExposurePlus1Icon
-              className={classes.statsIcon,classes.mainButton}
+              className={classes.statsIcon, classes.mainButton}
               color="action"
             />
             <ExposureNeg1Icon
-              className={classes.statsIcon,classes.mainButton}
+              className={classes.statsIcon, classes.mainButton}
               color="action"
             />
           </Grid>

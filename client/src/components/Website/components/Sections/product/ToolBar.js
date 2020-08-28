@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fade } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
 
 import clsx from 'clsx';
 import {
   Box,
   Button,
-  Card,
-  CardContent,
   TextField,
   InputAdornment,
   SvgIcon,
@@ -40,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  margin:{
-    paddingTop:'5px'
+  margin: {
+    paddingTop: '5px'
   },
   mainButton: {
-    
+
     borderRadius: "6px",
     border: "2px solid grey"
   },
@@ -64,28 +61,25 @@ const Toolbar = ({ className, ...rest }) => {
         justifyContent="flex-end"
       >
         <TextField
-                className={classes.importButton}
-                halfwidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon
-                        fontSize="small"
-                        color="action"
-                      >
-                        <SearchIcon />
-                      </SvgIcon>
-                    </InputAdornment>
-                  )
-                }}
-                placeholder="Search product"
-                variant="outlined"
-              />
-              
-        
-      
+          className={classes.importButton}
+          halfwidth
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SvgIcon
+                  fontSize="small"
+                  color="action"
+                >
+                  <SearchIcon />
+                </SvgIcon>
+              </InputAdornment>
+            )
+          }}
+          placeholder="Search product"
+          variant="outlined"
+        />
         <Button className={classes.exportButton}>
-          Log Out 
+          Log Out
         </Button>
         <Button
           color="primary"
@@ -93,9 +87,7 @@ const Toolbar = ({ className, ...rest }) => {
         >
           Add product
         </Button>
-        
       </Box>
-      
     </div>
   );
 };

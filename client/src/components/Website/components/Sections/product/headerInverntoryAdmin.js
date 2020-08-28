@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React from "react";
 
 import curv from "../../../utils/assets/img/curv.png";
@@ -23,22 +22,11 @@ import styles from "../../../../utils/assets/jss/material-kit-react/components/h
 const useStyles = makeStyles(styles);
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
-
-
-
-
-
 export default function HeaderLinks(props) {
 
   const classes = useStyles();
   return (
     <List className={classes.list}>
-     
-    
-    
-
-      
-
       <ListItem className={classes.listItem}>
         <Button
           color="transparent"
@@ -57,9 +45,6 @@ export default function HeaderLinks(props) {
           <ShoppingCartIcon className={classes.icons} /> LogOut
         </Button>
       </ListItem>
-
-      
-
     </List>
   );
 }
