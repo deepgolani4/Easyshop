@@ -58,7 +58,6 @@ export default function LandingPage(props) {
               <div>
                 <img src={profile} alt="..." className={imageClasses} />
               </div>
-
             </div>
           </GridItem>
         </GridContainer>
