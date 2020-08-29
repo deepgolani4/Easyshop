@@ -1,16 +1,17 @@
 import React from 'react';
-import {
-  Box,
-  Container,
-  Grid,
-  makeStyles
-} from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
+import { AuthContext } from '../../../helper';
+
+import { Box, Container, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import LandingPage from '../../LandingPage';
+import HeaderLinks from './headerLinks';
+
 import Page from './page.js';
 import data from './data.js';
 import ProductCard from './productcard';
 import Toolbar from './ToolBar'
-import { Redirect } from 'react-router-dom';
-import { AuthContext } from '../../../helper';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,50 +32,52 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProductList() {
+export default function AdminPanel() {
   const { currentUser } = React.useContext(AuthContext);
   const classes = useStyles();
   const [products, setProducts] = React.useState(data);
 
   React.useEffect(() => {
     setProducts(products => [...products])
-  },[])
+  }, [])
 
   return currentUser ? (
-    <Page
-      className={classes.root, classes.mainRaised}
-      title="Products"
-    >
-      <Container maxWidth={false}>
-        <Toolbar />
-        <Box mt={3}>
-          <Grid
-            container
-            spacing={3}
+    <LandingPage headerlinks={<HeaderLinks />}>
+      <Page
+        className={classes.root, classes.mainRaised}
+        title="Products"
+      >
+        <Container maxWidth={false}>
+          {/* <Toolbar /> */}
+          <Box mt={3}>
+            <Grid
+              container
+              spacing={3}
+            >
+              {products.map((product) => (
+                <Grid
+                  item
+                  key={product.id}
+                  lg={4}
+                  md={6}
+                  xs={12}
+                >
+                  <ProductCard
+                    className={classes.productCard}
+                    product={product}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+          <Box
+            mt={3}
+            display="flex"
+            justifyContent="center"
           >
-            {products.map((product) => (
-              <Grid
-                item
-                key={product.id}
-                lg={4}
-                md={6}
-                xs={12}
-              >
-                <ProductCard
-                  className={classes.productCard}
-                  product={product}
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-        <Box
-          mt={3}
-          display="flex"
-          justifyContent="center"
-        >
-        </Box>
-      </Container>
-    </Page>
+          </Box>
+        </Container>
+      </Page>
+    </LandingPage>
   ) : <Redirect to="/" />
 };

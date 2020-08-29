@@ -3,20 +3,16 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 // core components
 import Header from "../../utils/Header/Header.js";
-// import Footer from "../../utils/Footer/Footer.js";
 import GridContainer from "../../utils/Grid/GridContainer.js";
 import GridItem from "../../utils/Grid/GridItem.js";
-import HeaderLinks from "./Sections/root/HeaderLinks.js";
 import Parallax from "../../utils/Parallax/Parallax.js";
 import styles from "../../utils/assets/jss/material-kit-react/views/landingPage.js";
-import TopPicks from './Sections/root/dispplay';
 // Sections for this page
 import profile from "../../utils/assets/img/EasyShop.jpeg";
-import ProfilePage from './Sections/root/bestproduct'
-import ProductCategories from './Sections/root/ShopSection'
 
 const useStyles = makeStyles(styles);
 
@@ -28,13 +24,13 @@ export default function LandingPage(props) {
     classes.imgFluid
   );
 
-  const { ...rest } = props;
+  const { children,headerlinks,...rest } = props;
   return (
     <div>
       <Header
         color="transparent"
         brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
+        rightLinks={headerlinks}
         fixed
         changeColorOnScroll={{
           height: 100,
@@ -65,11 +61,16 @@ export default function LandingPage(props) {
 
         </div>
         <div className={classes.settings}>
-          <TopPicks />
-          <ProductCategories />
-          <ProfilePage />
+          {
+            children
+          }
         </div>
       </div>
     </div>
   );
 }
+
+LandingPage.propTypes = {
+  children: PropTypes.node,
+  headerlinks: PropTypes.node
+};
