@@ -169,15 +169,9 @@ const Logged = () => {
   return (
     <CustomDropdown
       left
-      caret={false}
+      caret
       hoverColor="black"
-      buttonText={
-        <img
-          src={''}
-          className={'classes.img'}
-          alt="profile"
-        />
-      }
+      buttonText={"Account"}
       buttonProps={{
         className:
           'classes.navLink' + " " + 'classes.imageDropdownButton',

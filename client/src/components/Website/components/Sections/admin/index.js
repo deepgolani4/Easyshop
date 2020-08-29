@@ -45,7 +45,7 @@ export default function AdminPanel() {
     <LandingPage headerlinks={<HeaderLinks />}>
       <Page
         className={classes.root, classes.mainRaised}
-        title="Products"
+        title="EasyShop - Admin"
       >
         <Container maxWidth={false}>
           {/* <Toolbar /> */}

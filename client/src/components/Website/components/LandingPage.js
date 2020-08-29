@@ -29,7 +29,7 @@ export default function LandingPage(props) {
     <div>
       <Header
         color="transparent"
-        brand="Material Kit React"
+        brand="EasyShop"
         rightLinks={headerlinks}
         fixed
         changeColorOnScroll={{
