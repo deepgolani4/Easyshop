@@ -16,7 +16,7 @@ import {
   Link as Link_
 } from '@material-ui/core';
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Typography from "../../../../utils/assets/jss/material-kit-react/components/typography";
 import CustomDropdown from "../../../../utils/CustomDropdown/CustomDropdown";
 
@@ -166,6 +166,7 @@ const Auth = ({ history }) => {
 }
 
 const Logged = () => {
+  const history = useHistory();
   return (
     <CustomDropdown
       left
@@ -178,7 +179,7 @@ const Logged = () => {
         color: "transparent"
       }}
       dropdownList={[
-        <Link_ color="inherit" href="/admin" underline="none">Admin Panel</Link_>,
+        <div onClick={() => history.push('/admin')}>Admin Panel</div>,
         <div onClick={async () => {
           window.localStorage.setItem('token','');
           window.location.reload()
