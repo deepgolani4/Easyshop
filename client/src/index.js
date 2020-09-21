@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+// import 'react-owl-carousel2/style.css';
 // import "./assets/scss/material-kit-react.scss";
 
 ReactDOM.render(

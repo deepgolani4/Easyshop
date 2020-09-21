@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const testSchema = mongoose.Schema({
-    //Something
+  //Something
 });
 
-const test = mongoose.model('test',testSchema);
+const test = mongoose.model('test', testSchema);
 
 module.exports = test;

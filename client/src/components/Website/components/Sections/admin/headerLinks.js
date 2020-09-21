@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React from 'react';
 import { AuthContext } from '../../../helper';
 import encrypt_ from '../../../../../helpers/jsonEncrypt';
 import axios from 'axios';
@@ -11,16 +11,25 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {
-  List, ListItem, Dialog, TextField, DialogContent, Avatar,
-  CssBaseline, FormControlLabel, Checkbox, Grid, Button,
-  Link as Link_
+  List,
+  ListItem,
+  Dialog,
+  TextField,
+  DialogContent,
+  Avatar,
+  CssBaseline,
+  FormControlLabel,
+  Checkbox,
+  Grid,
+  Button,
+  Link as Link_,
 } from '@material-ui/core';
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
-import Typography from "../../../../utils/assets/jss/material-kit-react/components/typography";
-import CustomDropdown from "../../../../utils/CustomDropdown/CustomDropdown";
+import { Link } from 'react-router-dom';
+import Typography from '../../../../utils/assets/jss/material-kit-react/components/typography';
+import CustomDropdown from '../../../../utils/CustomDropdown/CustomDropdown';
 
-import styles from "../../../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js";
+import styles from '../../../../utils/assets/jss/material-kit-react/components/headerLinksStyle.js';
 
 const useStyles = makeStyles(styles);
 const useStyles2 = makeStyles((theme) => ({
@@ -40,44 +49,48 @@ const useStyles2 = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  }, curvyLines: {
+  },
+  curvyLines: {
     pointerEvents: 'none',
     position: 'absolute',
     top: -180,
-
   },
 }));
 
 const Auth = ({ history }) => {
-  const classes = useStyles2()
-  const classes1 = useStyles()
+  const classes = useStyles2();
+  const classes1 = useStyles();
   var [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
-  }
+  };
 
   const handleClose = () => {
     setOpen(false);
-  }
+  };
 
-  const handleLoginOldSchool = React.useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    axios.post('http://localhost:5000/login', {
-      payload: encrypt_({
-        email: email.value,
-        password: password.value
-      })
-    }).then((res) => {
-      console.log(res.data)
-      window.localStorage.setItem('token', res.data);
-      window.location.href = '/'
-    }).catch(err => {
-      console.log(err);
-      alert('Error Occured. Try after Some Time');
-    })
-  },
+  const handleLoginOldSchool = React.useCallback(
+    async (event) => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      axios
+        .post('http://localhost:5000/login', {
+          payload: encrypt_({
+            email: email.value,
+            password: password.value,
+          }),
+        })
+        .then((res) => {
+          console.log(res.data);
+          window.localStorage.setItem('token', res.data);
+          window.location.href = '/';
+        })
+        .catch((err) => {
+          console.log(err);
+          alert('Error Occured. Try after Some Time');
+        });
+    },
     [history]
   );
 
@@ -163,7 +176,7 @@ const Auth = ({ history }) => {
       </Dialog>
     </>
   );
-}
+};
 
 const Logged = () => {
   return (
@@ -171,30 +184,36 @@ const Logged = () => {
       left
       caret
       hoverColor="black"
-      buttonText={"Account"}
+      buttonText={'Account'}
       buttonProps={{
-        className:
-          'classes.navLink' + " " + 'classes.imageDropdownButton',
-        color: "transparent"
+        className: 'classes.navLink' + ' ' + 'classes.imageDropdownButton',
+        color: 'transparent',
       }}
       dropdownList={[
-        <Link_ color="inherit" href="/admin" underline="none">Admin Panel</Link_>,
-        <div onClick={async () => {
-          window.localStorage.setItem('token','');
-          window.location.reload()
-        }}> Sign Out </div>
+        <Link_ color="inherit" href="/admin" underline="none">
+          Admin Panel
+        </Link_>,
+        <div
+          onClick={async () => {
+            window.localStorage.setItem('token', '');
+            window.location.reload();
+          }}
+        >
+          {' '}
+          Sign Out{' '}
+        </div>,
       ]}
     />
-  )
-}
+  );
+};
 
 export default function HeaderLinks(props) {
-  const { currentUser } = React.useContext(AuthContext)
+  const { currentUser } = React.useContext(AuthContext);
   const classes = useStyles();
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <div className={classes.search, classes.margin}>
+        <div className={(classes.search, classes.margin)}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
@@ -209,29 +228,19 @@ export default function HeaderLinks(props) {
         </div>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <div className={classes.search, classes.margin}>
-
-        </div>
+        <div className={(classes.search, classes.margin)}></div>
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        {
-          currentUser ? <Logged /> : <Auth />
-        }
+        {currentUser ? <Logged /> : <Auth />}
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <div className={classes.search, classes.margin}>
-
-        </div>
+        <div className={(classes.search, classes.margin)}></div>
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Button
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
+        <Button color="transparent" target="_blank" className={classes.navLink}>
           <ShoppingCartIcon className={classes.icons} /> Cart
         </Button>
       </ListItem>

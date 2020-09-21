@@ -1,30 +1,30 @@
-import React from "react";
+import React from 'react';
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames';
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+import Camera from '@material-ui/icons/Camera';
+import Palette from '@material-ui/icons/Palette';
+import Favorite from '@material-ui/icons/Favorite';
 // core components
 
-import GridContainer from "../../../../utils/Grid/GridContainer";
-import GridItem from "../../../../utils/Grid/GridItem";
-import NavPills from "../../../../utils/NavPills/NavPills";
+import GridContainer from '../../../../utils/Grid/GridContainer';
+import GridItem from '../../../../utils/Grid/GridItem';
+import NavPills from '../../../../utils/NavPills/NavPills';
 
-import studio1 from "../../../../utils/assets/img/examples/studio-1.jpg";
-import studio2 from "../../../../utils/assets/img/examples/studio-2.jpg";
-import studio3 from "../../../../utils/assets/img/examples/studio-3.jpg";
-import studio4 from "../../../../utils/assets/img/examples/studio-4.jpg";
-import studio5 from "../../../../utils/assets/img/examples/studio-5.jpg";
-import work1 from "../../../../utils/assets/img/examples/olu-eletu.jpg";
-import work2 from "../../../../utils/assets/img/examples/clem-onojeghuo.jpg";
-import work3 from "../../../../utils/assets/img/examples/cynthia-del-rio.jpg";
-import work4 from "../../../../utils/assets/img/examples/mariya-georgieva.jpg";
-import work5 from "../../../../utils/assets/img/examples/clem-onojegaw.jpg";
+import studio1 from '../../../../utils/assets/img/examples/studio-1.jpg';
+import studio2 from '../../../../utils/assets/img/examples/studio-2.jpg';
+import studio3 from '../../../../utils/assets/img/examples/studio-3.jpg';
+import studio4 from '../../../../utils/assets/img/examples/studio-4.jpg';
+import studio5 from '../../../../utils/assets/img/examples/studio-5.jpg';
+import work1 from '../../../../utils/assets/img/examples/olu-eletu.jpg';
+import work2 from '../../../../utils/assets/img/examples/clem-onojeghuo.jpg';
+import work3 from '../../../../utils/assets/img/examples/cynthia-del-rio.jpg';
+import work4 from '../../../../utils/assets/img/examples/mariya-georgieva.jpg';
+import work5 from '../../../../utils/assets/img/examples/clem-onojegaw.jpg';
 
-import styles from "../../../../utils/assets/jss/material-kit-react/views/profilePage.js";
+import styles from '../../../../utils/assets/jss/material-kit-react/views/profilePage.js';
 
 const useStyles = makeStyles(styles);
 
@@ -42,7 +42,7 @@ export default function ProfilePage(props) {
               color="primary"
               tabs={[
                 {
-                  tabButton: "Grocery",
+                  tabButton: 'Grocery',
                   tabIcon: Camera,
                   tabContent: (
                     <GridContainer justify="center">
@@ -50,9 +50,7 @@ export default function ProfilePage(props) {
                         <img
                           alt="..."
                           src={studio1}
-                          className={navImageClasses
-
-                          }
+                          className={navImageClasses}
                         />
                         <img
                           alt="..."
@@ -73,10 +71,10 @@ export default function ProfilePage(props) {
                         />
                       </GridItem>
                     </GridContainer>
-                  )
+                  ),
                 },
                 {
-                  tabButton: "self care",
+                  tabButton: 'self care',
                   tabIcon: Palette,
                   tabContent: (
                     <GridContainer justify="center">
@@ -110,10 +108,10 @@ export default function ProfilePage(props) {
                         />
                       </GridItem>
                     </GridContainer>
-                  )
+                  ),
                 },
                 {
-                  tabButton: "stationery",
+                  tabButton: 'stationery',
                   tabIcon: Favorite,
                   tabContent: (
                     <GridContainer justify="center">
@@ -147,8 +145,8 @@ export default function ProfilePage(props) {
                         />
                       </GridItem>
                     </GridContainer>
-                  )
-                }
+                  ),
+                },
               ]}
             />
           </GridItem>

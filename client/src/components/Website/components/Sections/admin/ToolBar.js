@@ -9,17 +9,16 @@ import {
   TextField,
   InputAdornment,
   SvgIcon,
-  makeStyles
+  makeStyles,
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   importButton: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
-  exportButton: {
-  },
+  exportButton: {},
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -38,53 +37,37 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   margin: {
-    paddingTop: '5px'
+    paddingTop: '5px',
   },
   mainButton: {
-
-    borderRadius: "6px",
-    border: "2px solid grey"
+    borderRadius: '6px',
+    border: '2px solid grey',
   },
-
 }));
 
 const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <Box
-        display="flex"
-        justifyContent="flex-end"
-      >
+    <div className={clsx(classes.root, className)} {...rest}>
+      <Box display="flex" justifyContent="flex-end">
         <TextField
           className={classes.importButton}
           halfwidth
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SvgIcon
-                  fontSize="small"
-                  color="action"
-                >
+                <SvgIcon fontSize="small" color="action">
                   <SearchIcon />
                 </SvgIcon>
               </InputAdornment>
-            )
+            ),
           }}
           placeholder="Search product"
           variant="outlined"
         />
-        <Button className={classes.exportButton}>
-          Log Out
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
+        <Button className={classes.exportButton}>Log Out</Button>
+        <Button color="primary" variant="contained">
           Add product
         </Button>
       </Box>
@@ -93,7 +76,7 @@ const Toolbar = ({ className, ...rest }) => {
 };
 
 Toolbar.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Toolbar;

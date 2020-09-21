@@ -8,13 +8,13 @@ import AdminPanel from './components/Sections/admin/index';
 import Shop from './components/Sections/shop/index';
 
 export default function HomePage() {
-    return (
-        <Switch>
-            <AuthProvider>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/admin" component={AdminPanel} />
-                <Route path="/shop" component={Shop} />
-            </AuthProvider>
-        </Switch>
-    )
+  return (
+    <Switch>
+      <AuthProvider>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/admin" component={AdminPanel} />
+        <Route path="/shop" component={Shop} />
+      </AuthProvider>
+    </Switch>
+  );
 }
