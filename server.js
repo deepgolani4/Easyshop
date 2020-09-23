@@ -18,6 +18,10 @@ app.use(
 );
 app.use('/', index);
 
+app.get('/test', (req, res) => {
+  res.send('success');
+});
+
 app.post('/check', verifyJWT, (req, res) => {
   // const { payload } = req.body;
   res.send(req.body);
@@ -30,3 +34,5 @@ app.listen(port, (err) => {
     console.log(`Listening on port ${port}`);
   }
 });
+
+module.exports = app;

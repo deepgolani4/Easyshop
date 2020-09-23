@@ -6,33 +6,35 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    name: Build Checks
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
       - uses: actions/checkout@v1
-      - name: npm install and build webpack
+      - name: nodeJS unit test
         run: |
           npm install
-          npm run build
-      - uses: actions/upload-artifact@master
-        with:
-          name: webpack artifacts
-          path: public/
+          npm i -D mocha supertest
+          npm run test
 
       - uses: actions/checkout@v1
-      - name: npm client checkout
+      - name: reactJS unit test
         run: |
           cd client
+          npm install
           npm run build
+          ls
 
-  deploy:
-    runs-on: ubuntu-latest
+  # deploy:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v1
-      - name: deploy on EC2
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-          aws --version
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: deploy on EC2
+  #       run: |
+  #         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  #         unzip awscliv2.zip
+  #         sudo ./aws/install
+  #         aws --version
