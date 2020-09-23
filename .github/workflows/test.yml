@@ -1,0 +1,41 @@
+name: Node CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: npm install and build webpack
+        run: |
+          npm install
+          npm run build
+			- uses: actions/upload-artifact@master
+				with:
+					name: webpack artifacts
+					path: public/
+	
+			- uses: actions/checkout@v1
+			- name: npm client checkout
+				run: |
+					cd client
+					npm run build
+					
+			
+
+	
+	deploy:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - uses: actions/checkout@v1
+      - name: deploy on EC2
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+          aws --version

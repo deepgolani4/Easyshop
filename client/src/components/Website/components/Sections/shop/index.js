@@ -176,7 +176,7 @@ const ShopComp = (props) => {
           <Grid container>
             {data.products.slice(page * 9 - 9, page * 9).map((prod, i) => {
               return (
-                <Grid item xs={4}>
+                <Grid item xs={6} sm={6} md={6} lg={4} xl={4}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia

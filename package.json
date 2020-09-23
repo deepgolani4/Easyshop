@@ -4,7 +4,9 @@
   "description": "Node App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --config ./src/webpack.config.js --mode production",
+    "dev": "npx webpack --config ./src/webpack.config.js --mode development --watch",
+    "test": "npx standard && npx jest",
     "start": "node app.js"
   },
   "author": "",
