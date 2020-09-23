@@ -2,7 +2,7 @@ name: Node CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
@@ -14,23 +14,20 @@ jobs:
         run: |
           npm install
           npm run build
-			- uses: actions/upload-artifact@master
-				with:
-					name: webpack artifacts
-					path: public/
-	
-			- uses: actions/checkout@v1
-			- name: npm client checkout
-				run: |
-					cd client
-					npm run build
-					
-			
+      - uses: actions/upload-artifact@master
+        with:
+          name: webpack artifacts
+          path: public/
 
-	
-	deploy:
+      - uses: actions/checkout@v1
+      - name: npm client checkout
+        run: |
+          cd client
+          npm run build
+
+  deploy:
     runs-on: ubuntu-latest
-  
+
     steps:
       - uses: actions/checkout@v1
       - name: deploy on EC2
