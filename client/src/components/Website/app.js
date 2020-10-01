@@ -6,7 +6,7 @@ import { AuthProvider } from './helper';
 import Homepage from './components/Sections/root/index';
 import AdminPanel from './components/Sections/admin/index';
 import Shop from './components/Sections/shop/index';
-
+import ShopSearch from './components/Sections/searchpage/index'
 export default function HomePage() {
   return (
     <Switch>
@@ -14,6 +14,7 @@ export default function HomePage() {
         <Route exact path="/" component={Homepage} />
         <Route path="/admin" component={AdminPanel} />
         <Route path="/shop" component={Shop} />
+        <Route path="/search" component={ShopSearch} />
       </AuthProvider>
     </Switch>
   );
